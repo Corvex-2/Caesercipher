@@ -23,13 +23,13 @@ namespace AE_Caesarcipher.Algorithm
             if (!Target.IsEncrypted)
                 return Target;
 
-            var CeaserAlphabet = GetCeaserAlphabet(Key);
+            var CaeserAlphabet = GetCaeserAlphabet(Key);
 
             StringBuilder strb = new StringBuilder();
 
             foreach (var c in Target.Message)
             {
-                var index = CeaserAlphabet.IndexOf(c);
+                var index = CaeserAlphabet.IndexOf(c);
 
                 if (index == -1)
                 {
@@ -54,7 +54,7 @@ namespace AE_Caesarcipher.Algorithm
             if (Target.IsEncrypted)
                 return Target;
 
-            var CeaserAlphabet = GetCeaserAlphabet(Key);
+            var CaeserAlphabet = GetCaeserAlphabet(Key);
 
             StringBuilder strb = new StringBuilder();
 
@@ -68,7 +68,7 @@ namespace AE_Caesarcipher.Algorithm
                     continue;
                 }
 
-                strb.Append(CeaserAlphabet[index].ToString());
+                strb.Append(CaeserAlphabet[index].ToString());
             }
 
             return new Cipher(strb.ToString(), true);
@@ -80,7 +80,7 @@ namespace AE_Caesarcipher.Algorithm
         /// </summary>
         /// <param name="Key">Der Key mit dem die Buchstaben verschoben werden im Alphabet.</param>
         /// <returns>Das Caeser-Alphabet</returns>
-        public static string GetCeaserAlphabet(int Key)
+        public static string GetCaeserAlphabet(int Key)
         {
             var size = Alphabet.Length;
             var newalphabet = new char[size];
